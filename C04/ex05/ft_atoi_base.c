@@ -25,10 +25,10 @@ int	get_index(char c, char *base)
 	}
 	return (-1);
 }
-
+// EL PROBLEMA CON EL ATOI ES QUE CUANDO LE DAS UN NUMERO QUE NO PERTENECE A LA BASE DADA SIMPLEMENTE ESCRIBE '0'
 int	ft_atoi_recursive(char *str, char *base, int base_len, int digit)
 {
-	int	index;
+	int	index; 
 
 	if (digit < 0)
 		return (0);
