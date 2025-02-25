@@ -110,18 +110,18 @@ char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
 	return (result);
 }
 
-#include <stdio.h>
-int	main(void)
-{
-	char base1[] = "0123456789abcdef";
-	char base2[] = "01";
-	char *result = ft_convert_base(" -10000000000", base1, base2);
-	char *result2 = ft_convert_base("	 2", base1, base2);
-	printf("= %s\n", result);
-	if(result)
-		free(result);
-	printf("= %s\n", result2);
-	if(result2)
-		free(result2);
-	return (0);
-}
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	char base1[] = "0123456789abcdef";
+// 	char base2[] = "01";
+// 	char *result = ft_convert_base(" -10000000000", base1, base2);
+// 	char *result2 = ft_convert_base("	 2", base1, base2);
+// 	printf("= %s\n", result);
+// 	if(result)
+// 		free(result);
+// 	printf("= %s\n", result2);
+// 	if(result2)
+// 		free(result2);
+// 	return (0);
+// }
