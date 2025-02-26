@@ -2,6 +2,7 @@
     "files.associations": {
         "stdio.h": "c",
         "cstdlib": "c",
-        "stdlib.h": "c"
+        "stdlib.h": "c",
+        "ft_stock_str.h": "c"
     }
 }
