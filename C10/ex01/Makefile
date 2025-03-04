@@ -1,8 +1,8 @@
-PROG_NAME = ft_display_file
+PROG_NAME = ft_cat
+SOURCES = ft_cat.c
+OBJECTS = $(SOURCES:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SOURCES = ft_write_file.c
-OBJECTS = $(SOURCES:.c=.o)
 
 all: $(PROG_NAME)
 
