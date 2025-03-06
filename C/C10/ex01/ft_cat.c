@@ -3,7 +3,7 @@
 #include <string.h>
 #include <errno.h>
 
-#define BUFF_SIZE 4096
+#define BUFF_SIZE 29000
 
 void	ft_putstr(char *str)
 {
@@ -29,19 +29,39 @@ void	ft_read_write_file(int fd)
 		ft_putstr(strerror(errno));
 }
 
+void	ft_read_write_to_std(void)
+{
+	char	buffer[BUFF_SIZE];
+	int		bytes_read;
+	
+	while(1)
+	{
+		bytes_read = read(STDIN_FILENO, buffer, BUFF_SIZE);
+		if (bytes_read <= 0)
+			break;
+		write(STDOUT_FILENO, buffer, bytes_read);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	int	fd;
+	int	index;
 
-	if (argc == 2)
+	if (argc >= 2)
 	{
-		fd = open(argv[1], O_RDONLY);
-		ft_read_write_file(fd);
-		close(fd);
+		index = 1;
+		while (index < argc)
+		{
+			fd = open(argv[index], O_RDONLY);
+			if (!fd)
+				ft_putstr(strerror(errno));
+			ft_read_write_file(fd);
+			close(fd);
+			index++;
+		}
 	}
-	else if (argc < 2)
-		ft_putstr("File name missing.");
 	else
-		ft_putstr("Too many arguments.");
+		ft_read_write_to_std();
 	return (0);
 }
