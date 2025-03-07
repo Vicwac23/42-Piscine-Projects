@@ -42,28 +42,38 @@ void	read_bytes_from_file(int fd, int n)
 	buffer = file_malloc(fd);
 	if (buffer.filled > 0)
 	{
-		if (n >= 0)
+		if (n >= 0 && n <= buffer.filled)
 			buffer.arr += buffer.filled - n;
 		ft_putstr(buffer.arr);
 	}
 }
 
-void	open_read_close_file(int *fd, int byte_num, char *file)
+void	open_read_close_file(int *fd, int n, int argc, t_argv_index my_argv)
 {
-	*fd = open(file, O_RDONLY);
+	*fd = open(my_argv.argv[my_argv.index], O_RDONLY);
 	if (!(*fd))
 		ft_putstr(strerror(errno));
-	read_bytes_from_file(*fd, byte_num);
+	if (n != -1 && argc > 4)
+	{
+		ft_putstr("==> ");
+		ft_putstr(my_argv.argv[my_argv.index]);
+		ft_putstr(" <==\n");
+	}
+	read_bytes_from_file(*fd, n);
 	close(*fd);
+	if (n != -1 && argc > 4 && my_argv.index < argc - 1)
+		write(1, "\n", 1);
 }
 
 int	main(int argc, char **argv)
 {
-	int	fd;
-	int	index;
-	int	byte_num;
+	t_argv_index	my_argv;
+	int				fd;
+	int				byte_num;
 
 	byte_num = -1;
+	my_argv.index = 1;
+	my_argv.argv = argv;
 	if (argc >= 2)
 	{
 		if (argv[1][0] == '-' && argv[1][1] == 'c' && argv[1][2] == '\0')
@@ -71,12 +81,12 @@ int	main(int argc, char **argv)
 			byte_num = check_c_option_bytes(argv[2]);
 			if (byte_num == -1)
 				return (-1);
+			my_argv.index = 3;
 		}
-		index = 1;
-		while (index < argc)
+		while (my_argv.index < argc)
 		{
-			open_read_close_file(&fd, byte_num, argv[index]);
-			index++;
+			open_read_close_file(&fd, byte_num, argc, my_argv);
+			my_argv.index++;
 		}
 	}
 	else

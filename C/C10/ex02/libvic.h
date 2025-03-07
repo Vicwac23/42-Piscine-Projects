@@ -18,4 +18,10 @@ typedef struct s_buffer
 
 t_buffer	file_malloc(int fd);
 
+typedef struct s_argv_index
+{
+	char	**argv;
+	int		index;
+}	t_argv_index;
+
 #endif
