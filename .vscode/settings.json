@@ -4,6 +4,9 @@
         "cstdlib": "c",
         "stdlib.h": "c",
         "ft_stock_str.h": "c",
-        "fcntl.h": "c"
+        "fcntl.h": "c",
+        "libvic.h": "c",
+        "errno.h": "c",
+        "algorithm": "c"
     }
 }
