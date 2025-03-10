@@ -14,7 +14,7 @@ int	ft_atoi(char *str)
 {
 	int	sol;
 	int	sign;
-	int i;
+	int	i;
 
 	i = 0;
 	sol = 0;
