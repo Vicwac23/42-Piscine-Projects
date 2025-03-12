@@ -9,7 +9,7 @@ typedef struct s_list
 	void			*data;
 }	t_list;
 
-inline t_list	*ft_create_elem(void *data)
+t_list	*ft_create_elem(void *data)
 {
 	t_list	*new_elem;
 
