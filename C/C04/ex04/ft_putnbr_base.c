@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: victmore <victmore@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/10 17:27:43 by victmore          #+#    #+#             */
-/*   Updated: 2025/02/17 14:04:25 by victmore         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
 
 void	ft_putnbr_recursive(int nbr, char *base, int len)
@@ -56,8 +44,6 @@ void	ft_putnbr_base(int nbr, char *base)
 		}
 		len++;
 	}
-
-	
 	if (len <= 1)
 		return ;
 	ft_putnbr_recursive(nbr, base, len);

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: victmore <victmore@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 13:59:30 by victmore          #+#    #+#             */
-/*   Updated: 2025/02/17 15:08:24 by victmore         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include <unistd.h>
 
 int	get_index(char c, char *base)
@@ -25,10 +13,12 @@ int	get_index(char c, char *base)
 	}
 	return (-1);
 }
-// EL PROBLEMA CON EL ATOI ES QUE CUANDO LE DAS UN NUMERO QUE NO PERTENECE A LA BASE DADA SIMPLEMENTE ESCRIBE '0'
+
+// EL PROBLEMA CON EL ATOI ES QUE CUANDO LE DAS UN
+//NUMERO QUE NO PERTENECE A LA BASE DADA SIMPLEMENTE ESCRIBE '0'
 int	ft_atoi_recursive(char *str, char *base, int base_len, int digit)
 {
-	int	index; 
+	int	index;
 
 	if (digit < 0)
 		return (0);
