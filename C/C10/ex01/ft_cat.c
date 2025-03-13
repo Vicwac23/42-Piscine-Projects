@@ -7,7 +7,7 @@
 
 void	ft_putstr(char *str)
 {
-	while(*str)
+	while (*str)
 	{
 		write(1, str, 1);
 		str++;
@@ -16,8 +16,8 @@ void	ft_putstr(char *str)
 
 void	ft_read_write_file(int fd)
 {
-	int	bytes_read;
-	char buffer[BUFF_SIZE];
+	int		bytes_read;
+	char	buffer[BUFF_SIZE];
 
 	bytes_read = read(fd, buffer, BUFF_SIZE);
 	if (bytes_read > 0)
@@ -33,12 +33,12 @@ void	ft_read_write_to_std(void)
 {
 	char	buffer[BUFF_SIZE];
 	int		bytes_read;
-	
-	while(1)
+
+	while (1)
 	{
 		bytes_read = read(STDIN_FILENO, buffer, BUFF_SIZE);
 		if (bytes_read <= 0)
-			break;
+			break ;
 		write(STDOUT_FILENO, buffer, bytes_read);
 	}
 }
