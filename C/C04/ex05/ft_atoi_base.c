@@ -14,8 +14,6 @@ int	get_index(char c, char *base)
 	return (-1);
 }
 
-// EL PROBLEMA CON EL ATOI ES QUE CUANDO LE DAS UN
-//NUMERO QUE NO PERTENECE A LA BASE DADA SIMPLEMENTE ESCRIBE '0'
 int	ft_atoi_recursive(char *str, char *base, int base_len, int digit)
 {
 	int	index;
@@ -58,35 +56,35 @@ int	ft_atoi_base(char *str, char *base)
 	int	base_len;
 	int	str_len;
 	int	sign;
-	int	i;
 
 	base_len = 0;
 	if (!is_valid_base(base))
 		return (0);
 	while (base[base_len] != '\0')
 		base_len++;
-	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
-		|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
-		i++;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
 	sign = 1;
-	while (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
+	while (*str == '+' || *str == '-')
+		if (*str++ == '-')
 			sign *= -1;
-		i++;
-	}
 	str_len = 0;
-	while (str[i + str_len] && get_index(str[i + str_len], base) != -1)
+	while (str[str_len] && get_index(str[str_len], base) != -1)
 		str_len++;
+	if (str_len == 0)
+		return (0);
 	return (sign * ft_atoi_recursive(str, base, base_len, str_len - 1));
 }
 
 // #include <stdio.h>
-// int	main(void)
+// int	main(int argc, char **argv)
 // {
 // 	int	temp;
-// 	temp = ft_atoi_base("pona", "poniguay");
-// 	printf("%d", temp);
+
+// 	if (argc == 3)
+// 	{
+// 		temp = ft_atoi_base(argv[1], argv[2]);
+// 		printf("%d", temp);
+// 	}
 // 	return (0);
 // }
